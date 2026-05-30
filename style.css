@@ -321,3 +321,22 @@ nav a:hover {
 .lang-group select:hover {
     border-color: var(--primary-color);
 }
+
+.btn-list {
+    background-color: #2a2a2a;
+    color: white;
+    border: 1px solid #444;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+}
+.btn-list:hover {
+    background-color: #444;
+}
+.lista-item-btn {
+    display: block; width: 100%; text-align: left; background: #1e1e24; color: white; 
+    border: 1px solid #333; padding: 10px; margin-bottom: 5px; border-radius: 4px; cursor: pointer;
+}
+.lista-item-btn:hover { background: var(--primary-color); }
