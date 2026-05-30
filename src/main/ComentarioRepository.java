@@ -5,6 +5,6 @@ import java.util.List;
 
 @Repository
 public interface ComentarioRepository extends JpaRepository<Comentario, Long> {
-    // Busca os comentários do anime mais recente para o mais antigo
+    
     List<Comentario> findByIdAnimeOrderByIdDesc(Long idAnime);
 }

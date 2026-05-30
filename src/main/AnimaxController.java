@@ -21,9 +21,7 @@ public class AnimaxController {
     @Autowired
     private UsuarioRepository usuarioRepository;
     
-    // ==========================================
-    // CATÁLOGO DE ANIMES
-    // ==========================================
+    
     @GetMapping("/animes")
     public List<Anime> listarCatologo() {
         return animeRepository.findAll();
@@ -34,9 +32,7 @@ public class AnimaxController {
         return animeRepository.save(anime);
     }
 
-    // ==========================================
-    // LISTA DE FAVORITOS
-    // ==========================================
+    
     @GetMapping("/favoritos/{idUsuario}")
     public List<ListaFavoritos> listarFavoritos(@PathVariable Long idUsuario) {
         return favoritosRepository.findByIdUsuario(idUsuario);
@@ -48,9 +44,7 @@ public class AnimaxController {
         ListaFavoritos novoFavorito = new ListaFavoritos(idUsuario, anime);
         return favoritosRepository.save(novoFavorito);
     }
-// ==========================================
-    // COMENTÁRIOS E AVALIAÇÕES REAIS (BANCO H2)
-    // ==========================================
+
     @Autowired
     private ComentarioRepository comentarioRepository;
 
@@ -71,16 +65,14 @@ public class AnimaxController {
     public ResponseEntity<Void> avaliarEpisodio(@RequestBody Avaliacao novaAvaliacao) {
         Avaliacao existente = avaliacaoRepository.findByIdUsuarioAndIdAnime(novaAvaliacao.getIdUsuario(), novaAvaliacao.getIdAnime());
         if (existente != null) {
-            existente.setNota(novaAvaliacao.getNota()); // Atualiza a nota se já existir
+            existente.setNota(novaAvaliacao.getNota()); 
             avaliacaoRepository.save(existente);
         } else {
-            avaliacaoRepository.save(novaAvaliacao); // Cria nova nota
+            avaliacaoRepository.save(novaAvaliacao); 
         }
         return ResponseEntity.ok().build();
     }
-    // ==========================================
-    // REGISTO E AUTENTICAÇÃO DE UTILIZADORES
-    // ==========================================
+    
     @PostMapping("/usuarios/registrar")
     public ResponseEntity<?> registrarUsuario(@RequestBody Usuario usuario) {
         Optional<Usuario> usuarioExistente = usuarioRepository.findByEmail(usuario.getEmail());

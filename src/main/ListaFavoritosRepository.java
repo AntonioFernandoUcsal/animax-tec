@@ -8,10 +8,10 @@ import java.util.List;
 @Repository
 public interface ListaFavoritosRepository extends JpaRepository<ListaFavoritos, Long> {
     
-    // Busca os favoritos do utilizador
+    
     List<ListaFavoritos> findByIdUsuario(Long idUsuario);
 
-    // NOVO: Apaga um favorito específico cruzando o ID do Utilizador com o ID do Anime
+    
     @Transactional
     void deleteByIdUsuarioAndAnime_Id(Long idUsuario, Long idAnime);
 }
