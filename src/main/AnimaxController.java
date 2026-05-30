@@ -98,4 +98,29 @@ public class AnimaxController {
         return ResponseEntity.ok().build();
     }
     
+    @Autowired
+    private ListaPersonalizadaRepository listaRepository;
+
+    @Autowired
+    private ItemListaRepository itemListaRepository;
+
+    @PostMapping("/listas")
+    public ListaPersonalizada criarLista(@RequestBody ListaPersonalizada lista) {
+        return listaRepository.save(lista);
+    }
+
+    @GetMapping("/listas/usuario/{idUsuario}")
+    public List<ListaPersonalizada> listarPorUsuario(@PathVariable Long idUsuario) {
+        return listaRepository.findByIdUsuario(idUsuario);
+    }
+
+    @PostMapping("/listas/adicionar")
+    public ItemLista adicionarAnimeNaLista(@RequestBody ItemLista item) {
+        return itemListaRepository.save(item);
+    }
+
+    @GetMapping("/listas/{idLista}/itens")
+    public List<ItemLista> listarItensDaLista(@PathVariable Long idLista) {
+        return itemListaRepository.findByIdLista(idLista);
+    }
 }
