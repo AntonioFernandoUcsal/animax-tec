@@ -472,7 +472,7 @@
             flex-direction: column;
         }
 
-        /* --- SELETOR DE IDIOMAS DO PLAYER --- */
+        
         .language-selector {
             display: flex;
             gap: 20px;
@@ -562,7 +562,7 @@
         <section class="hero">
             <div style="max-width: 600px;">
                 <h1 id="welcome-message">Bem-vindo</h1>
-                <p>Conta conectada ao banco H2 (Comentários e Avaliações reais).</p>
+                <p>Conta conectada (Comentários e Avaliações reais).</p>
             </div>
         </section>
 
@@ -709,9 +709,7 @@
         function mostrarAdminArea() { document.getElementById('main-app-area').classList.add('hidden'); document.getElementById('admin-area').classList.remove('hidden'); }
         function baixarRelatorio(formato) { alert(`Gerando relatório H2 em ${formato}...`); }
 
-        // ==========================================
-        // MÓDULO DE PAGAMENTO PREMIUM E IDIOMAS
-        // ==========================================
+    
         function abrirPagamento() { document.getElementById('payment-modal').classList.remove('hidden'); }
         function fecharPagamento() { document.getElementById('payment-modal').classList.add('hidden'); }
 
@@ -737,9 +735,7 @@
             }
         }
 
-        // ==========================================
-        // MÓDULO DO PLAYER, COMENTÁRIOS E AVALIAÇÕES
-        // ==========================================
+        
         async function abrirPlayer(idAnime, titulo) {
             ANIME_ABERTO_ID = idAnime;
             TITULO_ANIME_ATUAL = titulo;
@@ -809,14 +805,12 @@
                     const estrelas = document.getElementById('star-rating').children;
                     for (let i = 0; i < estrelas.length; i++) estrelas[i].classList.remove('ativa');
                     for (let i = 0; i < nota; i++) estrelas[i].classList.add('ativa');
-                    document.getElementById('msg-avaliacao').innerText = `✅ Salvo no Banco H2: ${nota} Estrela(s)!`;
+                    document.getElementById('msg-avaliacao').innerText = `✅ Avaliação Salva: ${nota} Estrela(s)!`;
                 }
             } catch (e) { console.error(e); }
         }
 
-        // ==========================================
-        // SISTEMA BASE (LOGIN, CATÁLOGO, FAVORITOS)
-        // ==========================================
+        
         function alternarAbasAuth(mostrarLogin) {
             document.getElementById('login-box').classList.toggle('hidden', !mostrarLogin);
             document.getElementById('register-box').classList.toggle('hidden', mostrarLogin);
@@ -871,7 +865,7 @@
         }
 
         async function carregarAnimes() {
-            document.getElementById('titulo-secao').innerText = "Catálogo Geral (Dados do Banco H2)";
+            document.getElementById('titulo-secao').innerText = "Catálogo Geral";
             try {
                 const response = await fetch(`${API_URL}/animes`);
                 const animes = await response.json();
