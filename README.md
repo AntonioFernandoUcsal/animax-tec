@@ -29,7 +29,17 @@ Para rodar este projeto em sua máquina local, você precisará ter:
 
 Siga o passo a passo abaixo para rodar o projeto de forma fácil e rápida:
 
-**1. Navegue até a pasta raiz do projeto**
-Abra o seu terminal (ou prompt de comando) e entre no diretório onde os arquivos `pom.xml` e `mvnw` estão localizados.
-```bash
-cd Animax2/Animax
+**1. Abra o terminal**
+Abra o seu terminal de preferência (PowerShell ou Prompt de Comando).
+
+**2. Navegue até a pasta do projeto**
+Pelo terminal, acesse a pasta raiz do projeto, que é o local exato onde o arquivo `mvnw.cmd` se encontra. Utilize o comando `cd` seguido do caminho da sua pasta. Exemplo:
+`cd C:\Caminho\Para\Sua\Pasta\Animax`
+
+**3. Execute o comando de inicialização**
+Com o terminal na pasta correta, digite o comando abaixo e aperte Enter:
+`.\mvnw.cmd spring-boot:run`
+
+**4. Acesse a aplicação**
+Aguarde o terminal carregar os arquivos e exibir a mensagem de que a aplicação iniciou (geralmente indicando "Started [NomeDaAplicacao]"). Feito isso, abra o seu navegador e acesse:
+`http://localhost:8080`
